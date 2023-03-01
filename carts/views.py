@@ -12,10 +12,6 @@ def _cart_id(request):
     return cart
 
 
-def cart(request):
-    return render(request, 'store/cart.html')
-
-
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     try:
