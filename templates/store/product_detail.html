@@ -18,7 +18,7 @@
 					</article> <!-- gallery-wrap .end// -->
 				</aside>
 				<main class="col-md-6 border-left">
-					<form action="{% url 'add_cart' single_product.id %}" method="GET">
+					<form action="{% url 'add_cart' single_product.id %}" method="POST">
 						{% csrf_token %}
 						<article class="content-body">
 
@@ -35,22 +35,24 @@
 							<div class="row">
 								<div class="item-option-select">
 									<h6>Choose Color</h6>
-									<select name="color" class="form-control">
-										<option value="Black">Black</option>
-										<option value="White">White</option>
-										<option value="Blue">Blue</option>
-										<option value="Red">Red</option>
+									<select name="color" class="form-control" required>
+										<option value="" disabled selected>Select</option>
+										{% for i in single_product.variation_set.colors %}
+										<option value="{{ i.variation_value | lower }}">
+											{{ i.variation_value | capfirst }}</option>
+										{% endfor %}
 									</select>
 								</div>
 							</div> <!-- row.// -->
 							<div class="row">
 								<div class="item-option-select">
 									<h6>Select Size</h6>
-									<select name="size" class="form-control">
-										<option value="Small">Small</option>
-										<option value="Medium">Medium</option>
-										<option value="Large">Large</option>
-										<option value="Extra Large">Extra Large</option>
+									<select name="size" class="form-control" required>
+										<option value="" disabled selected>Select</option>
+										{% for i in single_product.variation_set.sizes %}
+										<option value="{{ i.variation_value | lower }}">
+											{{ i.variation_value | capfirst }}</option>
+										{% endfor %}
 									</select>
 								</div>
 							</div> <!-- row.// -->
