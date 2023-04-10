@@ -49,7 +49,8 @@ class Variation(models.Model):
     variation_value = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now=True)
+
     objects = VariationManager()
 
     def __str__(self):
-        return str(self.product)
+        return str(self.variation_value)
