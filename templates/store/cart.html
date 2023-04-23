@@ -51,7 +51,7 @@
                                         <div class="input-group input-spinner">
                                             <div class="input-group-prepend">
                                                 <a aria-label="remove-product"
-                                                    href="{% url 'remove_cart' cart_item.product.id %}"
+                                                    href="{% url 'remove_cart' cart_item.product.id cart_item.id%}"
                                                     class="btn btn-light" type="button" id="button-plus"> <i
                                                         class="fa fa-minus"></i> </a>
                                             </div>
@@ -79,7 +79,8 @@
                                     </div> <!-- price-wrap .// -->
                                 </td>
                                 <td class="text-right">
-                                    <a href="{% url 'remove_cart_item' cart_item.product.id %}" class="btn btn-danger">
+                                    <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
+                                        class="btn btn-danger">
                                         Remove</a>
                                 </td>
                             </tr>
