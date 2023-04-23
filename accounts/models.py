@@ -5,7 +5,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name, username, email, password=None):
+    def create_user(
+            self, first_name, last_name, username, email, password=None):
         if not email:
             raise ValueError('User must have a email address')
 
@@ -23,7 +24,8 @@ class MyAccountManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-    def create_superuser(self, first_name, last_name, username, email, password=None):
+    def create_superuser(
+            self, first_name, last_name, username, email, password=None):
         user = self.create_user(
             email=self.normalize_email(email),
             username=username,
