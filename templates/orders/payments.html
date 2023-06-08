@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+<section class="section-content padding-y bg">
+    <div class="container">
+
+        <!-- ============================ COMPONENT 1 ================================= -->
+        <div class="row">
+            <aside class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Billing Address</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Payment Method</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Review Products</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                        </p>
+                    </div>
+                </div>
+
+            </aside> <!-- col.// -->
+            <aside class="col-lg-4">
+
+                <div class="card">
+                    <div class="card-body">
+                        <dl class="dlist-align">
+                            <dt>Total price:</dt>
+                            <dd class="text-right">${{ total }}</dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Tax:</dt>
+                            <dd class="text-right"> ${{tax}}</dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt> Grand Total:</dt>
+                            <dd class="text-right text-dark b"><strong>${{grand_total}}</strong></dd>
+                        </dl>
+                        <hr>
+                        <p class="text-center mb-3">
+                            <img alt="payments-image" src="{% static './images/misc/payments.png' %}" height="26">
+                        </p>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Make Payment </a>
+                    </div> <!-- card-body.// -->
+                </div> <!-- card.// -->
+
+            </aside> <!-- col.// -->
+
+
+        </div> <!-- row.// -->
+        <!-- ============================ COMPONENT 1 END .// ================================= -->
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}
